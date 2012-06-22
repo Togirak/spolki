@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+  <div>
+	<h:form>
+	  <ul>
+		<li>
+		  <h:commandLink action="home?faces-redirect=true">
+			<h:outputText value="#{msg.linkHome}" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="addAjax?faces-redirect=true">
+			<h:outputText value="#{msg.companyAddLabel}" />
+		  </h:commandLink></li>
+		<li>
+		  <h:commandLink action="showCompany?faces-redirect=true">
+			 <h:outputText value="#{msg.companyAllLabel}" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="showCompanyContact?faces-redirect=true">
+			 <h:outputText value="#{msg.companyAllContact}" />
+		  </h:commandLink>
+		</li>
+	</ul>
+   </h:form>
+  </div>
+</ui:composition>

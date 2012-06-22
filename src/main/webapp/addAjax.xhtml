@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	>
+	<ui:define name="content">
+
+		<h:form id="companyForm">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.companyNameLabel}" />
+				<h:inputText id="name" value="#{companyBean.company.name}"
+					required="#{true}" >
+					<f:validateLength minimum="2" maximum="20" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.companySymbolLabel}" />
+				<h:inputText id="symbol" value="#{companyBean.company.symbol}"
+					validator="#{companyBean.uniqueSymbol}" required="#{true}">
+					<f:validateLength minimum="2" maximum="5" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.companySectorLabel}" />
+				<h:inputText id="sector" value="#{companyBean.company.sector}" >
+					<f:validateLength minimum="2" maximum="20" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="#{msg.companyActionPriceLabel}" />
+				<h:inputText id="price" value="#{companyBean.company.price}" >
+					<f:validateDoubleRange minimum="10.0"/>
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="#{msg.companyCityLabel}" />
+				<h:inputText id="city" value="#{companyBean.company.city}" >
+					<f:validateLength minimum="2" maximum="20" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="#{msg.companyRoadLabel}" />
+				<h:inputText id="road" value="#{companyBean.company.road}" >
+					<f:validateLength minimum="2" maximum="20" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="#{msg.companyNumberLabel}" />
+				<h:inputText id="number" value="#{companyBean.company.number}" >
+					<f:validateLength minimum="2" maximum="20" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="#{msg.companyPhoneLabel}" />
+				<h:inputText id="phone" value="#{companyBean.company.phone}" >
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.companyFormOKButton}"
+				action="#{companyBean.addCompany}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+			<h:panelGrid id="beanState" columns="2">
+				<h:outputText value="#{msg.companyNameLabel}" />
+				<h:outputText id="nameOutput" value="#{companyBean.company.name}" />
+
+				<h:outputText value="#{msg.companySymbolLabel}" />
+				<h:outputText id="symbolOutput" value="#{companyBean.company.symbol}" />
+
+				<h:outputText value="#{msg.companySectorLabel}" />
+				<h:outputText id="sectorOutput"
+					value="#{companyBean.company.sector}" />
+					
+				<h:outputText value="#{msg.companyActionPriceLabel}" />
+				<h:outputText id="priceOutput"
+					value="#{companyBean.company.price}" />	
+					
+				<h:outputText value="#{msg.companyCityLabel}" />
+				<h:outputText id="cityOutput"
+					value="#{companyBean.company.city}" />
+					
+				<h:outputText value="#{msg.companyRoadLabel}" />
+				<h:outputText id="roadOutput"
+					value="#{companyBean.company.road}" />
+					
+				<h:outputText value="#{msg.companyNumberLabel}" />
+				<h:outputText id="numberOutput"
+					value="#{companyBean.company.number}" />
+					
+				<h:outputText value="#{msg.companyPhoneLabel}" />
+				<h:outputText id="phoneOutput"
+					value="#{companyBean.company.phone}" />
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
